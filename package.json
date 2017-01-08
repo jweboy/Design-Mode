@@ -1,0 +1,16 @@
+{
+  "name": "designMode",
+  "version": "1.0.0",
+  "description": "index.js",
+  "main": "index.js",
+  "author": "Jl",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1",
+    "rimraf": "^2.5.4"
+  },
+  "scripts": {
+    "clean": "rimraf node_modules"
+  }
+}
