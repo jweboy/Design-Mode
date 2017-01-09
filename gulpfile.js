@@ -3,7 +3,7 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var PATH = './';
 
-gulp.task('server', function() {
+gulp.task('reload', function() {
   browserSync({
     server:{
       baseDir:'./'
