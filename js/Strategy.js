@@ -26,3 +26,43 @@ var calculateBonus = function (level, salary) {
 console.log(calculateBonus('S', 2000));
 console.log(calculateBonus('A', 2000));
 console.log(calculateBonus('B', 2000));
+//动画例子 引用flash简单算法
+var Animate = function (dom) {
+	this.dom = dom;
+	this.startTime = 0;
+	this.startPos = 0;
+	this.endPos = 0;
+	this.propertyName = null;
+	this.easing = null;
+	this.duration = null;
+}
+Animate.prototype = {
+	start:function(propertyName, endPos, duration, easing) {
+		this.startTime = +new Date;
+		this.startPos = this.dom.getBoundingClientRect()[propertyName];
+		this.propertyName = propertyName;
+		this.endPos = endPos;
+		this.duration = duration;
+		this.easing = tween[easing];
+
+		var self = this;
+		var timeId = setInterval(function() {
+			if (self.step() === false) {
+				clearInterval(timeId);
+			}
+		}, 19);
+	},
+	step:function() {
+		var t = +new Date;
+		if (t > this.startTime +　this.duration) {
+			this.update(this.endPos);
+			return false;
+		}
+		var pos = this.easing(t - this.startTime, this.startPos, this.endPos - this.startPos, this.duration);
+
+		this.update(pos);
+	},
+	update:function(pos) {
+		this.dom.style[this.propertyName] = pos + 'px';
+	}
+}
