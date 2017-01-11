@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style media="screen">
-    .qiu{
-    position: absolute;
-    background: blue;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%
-  }
-    </style>
-  </head>
-  <body>
-    <div class="qiu" id="qiu"></div>
-    <button type="button" name="button" id="btn">点击使小球发生运动</button>
-    <script src="js/Strategy.js" charset="utf-8"></script>
-    <script src="js/Tween.js" charset="utf-8"></script>
-    <script src="js/Until.js" charset="utf-8"></script>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    .qiu {
+      position: absolute;
+      background: blue;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="qiu" id="qiu"></div>
+  <button type="button" name="button" id="btn">点击使小球发生运动</button>
+  <script src="js/Strategy.js" charset="utf-8"></script>
+  <script src="js/Tween.js" charset="utf-8"></script>
+  <script src="js/Until.js" charset="utf-8"></script>
   <script>
     var btn = document.getElementById('btn');
-		var qiu = document.getElementById('qiu');
-		// console.log(qiu.getBoundingClientRect())
-		var animate = new Animate(qiu);
+    var qiu = document.getElementById('qiu');
+    // console.log(qiu.getBoundingClientRect())
+    var animate = new Animate(qiu);
     setTimeout(function() {
-      animate.start('left',500, 1000, 'strongEaseIn');
-      animate.start('top',500, 1000, 'strongEaseIn');
-     }, 100)
+      animate.start('left', 500, 1000, 'strongEaseIn');
+      animate.start('top', 500, 1000, 'strongEaseIn');
+    }, 100);
     // btn.onclick = function() {
     //   animate.start('right',500, 1000, 'sineaseIn');
     // }
     btn.onclick = function() {
-      animate.start('left',500, 1000, 'linear');
-    }
-	</script>
-  </body>
+      animate.start('left', 500, 1000, 'linear');
+    };
+
+  </script>
+</body>
+
 </html>

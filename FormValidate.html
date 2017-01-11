@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <form action="" id="registerForm">
+    username:<input type="text" name="username"><br> password:
+    <input type="text" name="password"><br>phoneNumber:
+    <input type="text" name="phoneNumber">
+    <button>submit</button>
+  </form>
+  <script src="./js/FormValidate.js"></script>
+  <script src="./js/Strategy.js"></script>
+  <script type="text/javascript">
+    var registerForm = document.getElementById('registerForm');
+
+    var validataFunc = function() {
+      var validator = new Validator();
+
+      validator.add(registerForm.username, [{
+        strategy: 'isNonEmpty',
+        errorMsg: '用户名不能为空'
+      }, {
+        strategy: 'minLength:5',
+        errorMsg: '用户名不能小于5位'
+      }]);
+
+      validator.add(registerForm.password, [{
+        strategy: 'isNonEmpty',
+        errorMsg: '密码不能为空'
+      }, {
+        strategy: 'minLength:6',
+        errorMsg: '密码不能小于6位'
+      }]);
+
+      validator.add(registerForm.password, [{
+        strategy: 'isMobile',
+        errorMsg: '请输入正确的手机号码'
+      }]);
+
+      var errorMsg = validator.start();
+      return errorMsg;
+    };
+
+    registerForm.onsubmit = function(e) {
+      // e.preventDefault();
+      var errorMsg = validataFunc();
+      if (errorMsg) {
+        console.error(errorMsg);
+        return false;
+      }
+    };
+
+  </script>
+</body>
+
+</html>
