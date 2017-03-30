@@ -10,5 +10,5 @@ gulp.task('reload', function() {
     }
   });
 
-  gulp.watch(['*.html','js/*.js'], {cwd:'./'}, reload);
-})
+  gulp.watch(['views/*.html','js/*.js'], {cwd:'./'}, reload);
+});

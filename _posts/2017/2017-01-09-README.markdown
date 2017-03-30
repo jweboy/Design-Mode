@@ -1,4 +1,0 @@
-#简介
-javascript 设计模式学习 —— Design Mode
-#解析
-javascript 设计模式
